@@ -1,12 +1,16 @@
 # AgnosticCB
 
+What's the background here?
+
+What we want to build?
+* in-memory caching + service
+* tie to other platofrms, gcp, aws, etc.
+
 ## CX input: service names + ip addresses + monitoring account (typically ties to CSP)
 
 aws, gcp, azure
 
 Onboarding process:
-
-Share service hosts, asg(s), etc.
 
 We import your alarms list (w/ permission) and request the critical ones you care about per service
 
