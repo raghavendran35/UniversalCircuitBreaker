@@ -1,40 +1,36 @@
 # AgnosticCB
+### Overviews
+AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) implemenation. It's a non-language-native implementation of the pattern which should afford flexibility of use. 
 
-What's the background here?
+Goal: Don't be reactive, be proactive
 
-What we want to build?
-* in-memory caching + service
-* tie to other platofrms, gcp, aws, etc.
+#### Features
+We don't want to compromise on the ease of use
 
-## CX input: service names + ip addresses + monitoring account (typically ties to CSP)
+* in-memory data caching (hits, misses, etc.) with Redis
+* generic breaker rules (a yml or json based templating language)
+* linking with public platforms (gcp, aws, azure) so their alarms can be used as part of a rule
+* Fallback path, multiple routes
+* healthchecks
 
-aws, gcp, azure
-
-Onboarding process:
-
-We import your alarms list (w/ permission) and request the critical ones you care about per service
-
-
-CB behavior scenarios:
-critical issue, need fallback path
-OR
-fallback to different hosts during some outage
-
-
-
-Customer should also share service flows. Pseudo requests for various flows
-
-We can run load tests, health checks, tracer bullets periodically
+Later:
+* Dashboard
+* predictive insights based on metrics behavior
+* Run time series models on metrics data possibly?
+* Load tests
+* Host-level routing?
 
 
-## Goal: Don't be reactive, be proactive
+### Installation
+TBD
 
-CB decision: 
+### Usage
+TBD
 
-predictive insights based on metrics behavior
-Run time series models on metrics data possibly?
+### Example
+TBD
 
-
-Eventually, set up CB to fall back hosts. Allow to dynamically assign more hosts
+### License
+MIT License
 
 
