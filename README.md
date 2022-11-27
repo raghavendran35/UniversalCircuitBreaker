@@ -1,7 +1,7 @@
 ![GitHub](https://img.shields.io/github/license/raghavendran35/AgnosticCB?style=flat-square)
 # AgnosticCB
 ### Overviews
-AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) implemenation. It's a non-language-native implementation of the pattern which should afford flexibility of use. 
+AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) implemenation. It's a non-language-native implementation of the pattern which should afford flexibility of use so anyone can host it on their infrastructure
 
 Goal: Don't be reactive, be proactive
 
@@ -26,7 +26,7 @@ Later:
 TBD
 
 ### Usage
-TBD
+* HTTP request based: CuRL it, use language-native libraries, shouldn't matter
 
 ### Example
 TBD
