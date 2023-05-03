@@ -29,7 +29,7 @@ You, as the developer:
 * Integrate metrics with 3P platforms like Grafana, Prometheus, Kibana, AWS, Azure, GCP
 
 
-![Example Image](https://drive.google.com/uc?1qqVrkDukCpIFp2dl7bqViubsznZNZZX8)
+![Example Image](https://drive.google.com/uc?id=1qqVrkDukCpIFp2dl7bqViubsznZNZZX8)
 
 #### Features
 We don't want to compromise on the ease of use
