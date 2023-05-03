@@ -28,6 +28,8 @@ You, as the developer:
 * integrate policy with 3P platforms like AWS, Azure, GCP
 * Integrate metrics with 3P platforms like Grafana, Prometheus, Kibana, AWS, Azure, GCP
 
+![Example Image](https://drive.google.com/uc?id=1-nThEkUx6ef9-A9vSQIHGYMP-ZiEZlDE)
+
 #### Features
 We don't want to compromise on the ease of use
 
