@@ -1,5 +1,8 @@
 ![GitHub](https://img.shields.io/github/license/raghavendran35/AgnosticCB?style=flat-square)
 # AgnosticCB
+
+## The future of automated fault tolerance
+
 ### Overviews
 AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) implemenation. It's a non-language-native implementation of the pattern which should afford flexibility of use so anyone can host it on their infrastructure
 
