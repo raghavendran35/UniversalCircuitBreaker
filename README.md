@@ -8,6 +8,11 @@ AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/Circuit
 
 Goal: Don't be reactive, be proactive
 
+#### Who is this for?
+* developers looking for a hands-free, easy-to-integrate Circuit Breaker solution
+* developers looking to integrate 3P metrics/monitoring into their circuit breakers
+* people who don't want to deal with a thundering herd problem and want a better overall picture of their service availability
+
 #### How it works (high level)
 It would be a protected call:
 * Before making a HTTP request, first check status of the specific Circuit Breaker (Redis)
