@@ -19,11 +19,14 @@ Later:
 * predictive insights based on metrics behavior
 * Run time series models on metrics data possibly?
 * Load tests
-* Host-level routing?
 
 
 ### Installation
-TBD
+Step 1: Install Redis
+Step 2: Install this package
+
+### Setup
+
 
 ### Usage
 * HTTP request based: CuRL it, use language-native libraries, shouldn't matter
