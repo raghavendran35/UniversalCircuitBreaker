@@ -1,5 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/raghavendran35/AgnosticCB?style=flat-square)
-# AgnosticCB
+# UniversalCircuitBreaker
 
 ## The future of automated fault tolerance
 
