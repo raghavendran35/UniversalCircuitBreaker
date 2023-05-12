@@ -6,7 +6,10 @@
 ### Overviews
 AgnosticCB is a bundled [circuit breaker](https://martinfowler.com/bliki/CircuitBreaker.html) implemenation. It's a non-language-native implementation of the pattern which should afford flexibility of use so anyone can host it on their infrastructure
 
-Goal: Don't be reactive, be proactive
+Tenets: 
+* Don't be reactive, be proactive
+* Easy to use for anyone (e.g. with a UI)
+* unrestricted (be multi-cloud!)
 
 #### Who is this for?
 * developers looking for a hands-free, easy-to-integrate Circuit Breaker solution
