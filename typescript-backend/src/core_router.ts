@@ -6,14 +6,9 @@ import express from "express";
 
 export const coreRouter = express.Router();
 
-//POST method for creating and saving new circuit breaker, initializes sqs queue
-
-//GET method for getting circuit breaker
-
-//PUT method for checking/possibly switching circuit breaker state
-
-
-// Test get method for plugging in sqs metrics (fails, misses)
+// Add route for new Redis schema setup
+// Add route for checking breaker status
+// Add route recording result for Redis
 
 
 
