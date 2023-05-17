@@ -7,7 +7,7 @@ import cors from "cors";
 import helmet from "helmet";
 
 import { coreRouter } from "./core_router";
-
+import { init_redis } from "./redis/redis_initializer";
 
 //load in environment variables
 dotenv.config();
@@ -37,6 +37,9 @@ app.use(cors());
 app.use(express.json());
 //take in optional path + callback function representing middleware function
 app.use("api/v1.0/universalbreaker", coreRouter);
+
+// Initialize Redis connect and health check
+init_redis();
 
 /**
  * Server Activation
