@@ -1,15 +1,20 @@
 # Typescript backend
+## Usage
+* Record response status/result
+* Get status of the breaker
+* Initialize Breaker a.k.a. initialize Redis storage (hooks into shell script maybe?)
+
 ## Elements
 ### Index/Entrypoint
 * Responsible for startup, set up, etc.
 
 ### Core Router
 * Endpoints
-  * /api/v1.0/universalbreaker/getStatus GET
+  * /api/v1.0/universalbreaker/getBreakerStatus GET
     * Gets the status of the breaker
     * Request: breaker-id (string)
     * Response: OPEN, CLOSE, (TODO: evaluate use of HALF-CLOSED) --> should all be strings
-  * /api/v1.0/universalbreaker/recordStatus GET (TODO: move to POST)
+  * /api/v1.0/universalbreaker/recordResult GET (TODO: move to POST)
     * Records status of the relevant API call for the breaker
     * Request: breaker-id (string), responseStatusCode (number), apiTag (for distinguishing different APIs)
 
