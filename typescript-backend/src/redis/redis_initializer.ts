@@ -1,5 +1,6 @@
 import assert from 'assert';
 import { RedisClientType, createClient } from 'redis';
+import { RedisApplicationCache } from './redis_application_cache';
 
 // TODO: See if there is a better way to deal with this
 let redisClient: any;
@@ -19,5 +20,10 @@ export function init_redis() {
     check_health(redisClient);
 
     redisClient = client;
+
+    // handles initialization of cache
+    RedisApplicationCache.getRedisApplicationCache();
+
+    // TODO: also note that on server startup, we'll need to re-initialize cache
     return redisClient;
 }
