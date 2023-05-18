@@ -14,9 +14,9 @@
     * Gets the status of the breaker
     * Request: breaker-id (string)
     * Response: OPEN, CLOSE, (TODO: evaluate use of HALF-CLOSED) --> should all be strings
-  * /api/v1.0/universalbreaker/recordResult GET (TODO: move to POST)
+  * /api/v1.0/universalbreaker/recordResult POST
     * Records status of the relevant API call for the breaker
-    * Request: breaker-id (string), responseStatusCode (number), apiTag (for distinguishing different APIs)
+    * Request: breaker-id (string), responseStatusCode (number)
 
 ### Breaker Gateway
 * Directly invoked via Core Router

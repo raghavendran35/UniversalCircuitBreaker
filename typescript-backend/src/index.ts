@@ -7,7 +7,8 @@ import cors from "cors";
 import helmet from "helmet";
 
 import { coreRouter } from "./core_router";
-import { init_redis } from "./redis/redis_implementation_layer";
+import { RedisImplementationLayer } from "./redis/redis_implementation_layer";
+import { CircuitBreakerGateway } from "./circuitbreaker/circuit_breaker_gateway";
 
 //load in environment variables
 dotenv.config();
@@ -39,7 +40,10 @@ app.use(express.json());
 app.use("api/v1.0/universalbreaker", coreRouter);
 
 // Initialize Redis connect and health check
-init_redis();
+RedisImplementationLayer.getRedisImplementationLayer().init_redis();
+
+// Initialize circuit breaker
+CircuitBreakerGateway.getCircuitBreakerGateway().init_breaker_gateway();
 
 /**
  * Server Activation
