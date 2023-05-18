@@ -1,9 +1,10 @@
 import assert from 'assert';
 import { RedisClientType, createClient } from 'redis';
-import { RedisApplicationCache } from './redis_application_cache';
+import { RedisBreakerStateCache } from './breaker_state_cache';
 
 // TODO: See if there is a better way to deal with this
 let redisClient: any;
+let redisBreakerStateCache: any;
 
 async function check_health(redisClient: RedisClientType) {
     await redisClient.connect();
@@ -21,8 +22,8 @@ export function init_redis() {
 
     redisClient = client;
 
-    // handles initialization of cache
-    RedisApplicationCache.getRedisApplicationCache();
+    // handles initialization of breaker state cache
+    redisBreakerStateCache = RedisBreakerStateCache.getRedisBreakerStateCache();
 
     // TODO: also note that on server startup, we'll need to re-initialize cache
     return redisClient;

@@ -7,7 +7,7 @@ import cors from "cors";
 import helmet from "helmet";
 
 import { coreRouter } from "./core_router";
-import { init_redis } from "./redis/redis_initializer";
+import { init_redis } from "./redis/redis_implementation_layer";
 
 //load in environment variables
 dotenv.config();
