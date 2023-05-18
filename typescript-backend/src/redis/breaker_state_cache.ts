@@ -1,5 +1,9 @@
+import { CircuitBreakerStates } from "../circuitbreaker/circuit_breaker_gateway";
+
 export class RedisBreakerStateCache {
     private ttl?: number;
+    // TODO: this record should be more generic?
+    // Could be simply: breaker-id: state
     private _cache: Record<any, any>
 
     // singleton is anti-pattern...
@@ -18,6 +22,15 @@ export class RedisBreakerStateCache {
 
     public static getRedisBreakerStateCache(ttl?: number) {
         return this._instance || (this._instance = new this(ttl));
+    }
+
+    getBreakerStatus(breakerId: string) {
+      return this._cache[breakerId];
+    }
+
+    // to avoid startup race conditions of being null or something, default to OPEN
+    setBreakerStatus(breakerId: string) {
+      this._cache[breakerId] = CircuitBreakerStates.OPEN;
     }
 
   }
