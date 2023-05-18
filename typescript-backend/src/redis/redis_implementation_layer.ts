@@ -1,30 +1,52 @@
 import assert from 'assert';
 import { RedisClientType, createClient } from 'redis';
 import { RedisBreakerStateCache } from './breaker_state_cache';
+import { ResultsRequestMetadata } from '../models/results_metadata.interface';
 
-// TODO: See if there is a better way to deal with this
-let redisClient: any;
-let redisBreakerStateCache: any;
+export class RedisImplementationLayer {
 
-async function check_health(redisClient: RedisClientType) {
-    await redisClient.connect();
-    await redisClient.set('key', 'value');
-    const value = await redisClient.get('key');
-    assert(value === 'value')
-}
+    // TODO: See if there is a better way to deal with this
+    private redisClient: any;
+    private redisBreakerStateCache: any;
 
-export function init_redis() {
-    // Check that Redis DB is healthy and is actually running
-    const client = createClient();
+    // singleton is anti-pattern...
+    private static _instance: RedisImplementationLayer;
 
-    client.on('error', err => console.log('Redis Client Error', err));
-    check_health(redisClient);
+    public static getRedisImplementationLayer() {
+        return this._instance || (this._instance = new this());
+    }
 
-    redisClient = client;
+    async check_health(redisClient: RedisClientType) {
+        await redisClient.connect();
+        await redisClient.set('key', 'value');
+        const value = await redisClient.get('key');
+        assert(value === 'value')
+    }
 
-    // handles initialization of breaker state cache
-    redisBreakerStateCache = RedisBreakerStateCache.getRedisBreakerStateCache();
+    async set_results_metadata(result: ResultsRequestMetadata) {
+        // TODO: populate
+        // use this.redisClient
+    }
 
-    // TODO: also note that on server startup, we'll need to re-initialize cache
-    return redisClient;
+    getRedisClientInstance() {
+        return this.redisClient || (this.redisClient = this.init_redis());
+    }
+
+    init_redis() {
+        // Check that Redis DB is healthy and is actually running
+        const client = createClient();
+
+        client.on('error', err => console.log('Redis Client Error', err));
+
+        this.redisClient = client;
+
+        // check health
+        this.check_health(this.redisClient);
+
+        // handles initialization of breaker state cache
+        this.redisBreakerStateCache = RedisBreakerStateCache.getRedisBreakerStateCache();
+    
+        return client;
+    }
+
 }
